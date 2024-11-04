@@ -1,13 +1,15 @@
-﻿namespace spedruin;
+﻿
+
+namespace spedruin;
 
 public partial class MainPage : ContentPage
 {
 bool Estamorto=false;
 bool EStarpulando=false;
 const int TempoEntreFrames=25;
-int velo1=0;
-int velo2=0;
-int velo3=0;
+int velo1=1;
+int velo2=2;
+int velo3=3;
 int velo=0;
 int LarguraDaJanela=0;
 int AlturaDaJanela=0;
@@ -17,6 +19,10 @@ int AlturaDaJanela=0;
 		InitializeComponent();
 	}
 
+ 
+
+   
+   
   protected override void OnSizeAllocated(double w, double h)
    {
      base.OnSizeAllocated(w, h);
@@ -35,19 +41,57 @@ void CalculaVelo(double w)
 void CorrigeTamanhoCenario(double w, double h)
 {
 	foreach(var A in HS1.Children)
-	(A as Imagre).WidthRequest=w;
+	(A as Image).WidthRequest=w;
 
 	foreach(var A in HS2.Children)
-	(A as Imagre).WidthRequest=w;
+	(A as Image).WidthRequest=w;
 
 	foreach(var A in HS3.Children)
-	(A as Imagre).WidthRequest=w;
+	(A as Image).WidthRequest=w;
 
 	HS1.WidthRequest=w*1.5;
 	HS2.WidthRequest=w*1.5;
 	HS3.WidthRequest=w*1.5;
-
 }
+
+	  protected override void OnAppearing()
+    {
+        base.OnAppearing();
+		Desenhar();
+    }
+
+	async Task Desenhar()
+  {
+	while(!Estamorto)
+	{
+		GerenciaCenas();
+		await Task.Delay(TempoEntreFrames);	
+	}
+  }
+
+ void GerenciaCenas()
+ {
+	MoveCena();
+	GerenciaCena(HS1);
+	GerenciaCena(HS2);
+	GerenciaCena(HS3);
+ }
+ void MoveCena()
+ {
+	HS1.TranslationX-=velo1;
+	HS2.TranslationX-=velo2;
+	HS3.TranslationX-=velo3;
+ }
+ void GerenciaCena(HorizontalStackLayout hsl)
+ {
+	var view =(hsl.Children.First()as Image);
+	if(view.WidthRequest + hsl.TranslationX < 0)
+	{
+		hsl.Children.Remove(view);
+		hsl.Children.Add(view);
+		hsl.TranslationX=view.TranslationX;
+	}
+ }
 
 }
 

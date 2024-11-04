@@ -9,27 +9,40 @@
 <HorizontalStackLayout x:Name="HS1"
 VerticalOptions="Start">
     <Image
-        Source="fundo.jpg"
+        Source="fundo3.jpg"
          HorizontalOptions="Fill"
          VerticalOptions="Fill"/>
     <Image
-        Source="fundo.jpg"
+        Source="fundo3.jpg"
          HorizontalOptions="Fill"
          VerticalOptions="Fill"/>
     <Image
-        Source="fundo.jpg"
+        Source="fundo3.jpg"
+         HorizontalOptions="Fill"
+         VerticalOptions="Fill"/>
+    <Image
+        Source="fundo3.jpg"
          HorizontalOptions="Fill"
          VerticalOptions="Fill"/>
 </HorizontalStackLayout>
 
 <HorizontalStackLayout x:Name="HS2"
-VerticalOptions="Center">
+VerticalOptions="Start">
     <Image
-        Source="castelo.jpg"
+        Source="arvores1.png"
          HorizontalOptions="Fill"
-         HeightRequest="200"
-         Margin="0,0,0,10"
-         VerticalOptions="Start"/>
+         HeightRequest="1000"
+         VerticalOptions="Fill"/>
+    <Image
+        Source="arvores1.png"
+         HorizontalOptions="Fill"
+         HeightRequest="1000"
+         VerticalOptions="Fill"/>
+    <Image
+        Source="arvores1.png"
+         HorizontalOptions="Fill"
+         HeightRequest="1000"
+         VerticalOptions="Fill"/>
 </HorizontalStackLayout>
 
 <HorizontalStackLayout x:Name="HS3"
