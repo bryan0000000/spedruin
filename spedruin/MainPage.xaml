@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="spedruin.MainPage">
+             x:Class="spedruin.MainPage"
+             Shell.NavBarIsVisible="false">
 
    <Grid>
 
@@ -10,18 +11,22 @@
 VerticalOptions="Start">
     <Image
         Source="fundo3.jpg"
+         Aspect="Fill"
          HorizontalOptions="Fill"
          VerticalOptions="Fill"/>
     <Image
         Source="fundo3.jpg"
+         Aspect="Fill"
          HorizontalOptions="Fill"
          VerticalOptions="Fill"/>
     <Image
         Source="fundo3.jpg"
+         Aspect="Fill"
          HorizontalOptions="Fill"
          VerticalOptions="Fill"/>
     <Image
         Source="fundo3.jpg"
+         Aspect="Fill"
          HorizontalOptions="Fill"
          VerticalOptions="Fill"/>
 </HorizontalStackLayout>
@@ -30,16 +35,19 @@ VerticalOptions="Start">
 VerticalOptions="Start">
     <Image
         Source="arvores1.png"
+        Aspect="Fill"
          HorizontalOptions="Fill"
          HeightRequest="1000"
          VerticalOptions="Fill"/>
     <Image
         Source="arvores1.png"
+         Aspect="Fill"
          HorizontalOptions="Fill"
          HeightRequest="1000"
          VerticalOptions="Fill"/>
     <Image
         Source="arvores1.png"
+         Aspect="Fill"
          HorizontalOptions="Fill"
          HeightRequest="1000"
          VerticalOptions="Fill"/>
@@ -63,10 +71,11 @@ VerticalOptions="End">
 </HorizontalStackLayout>
 
     <Image
-        Source="corre.png"
+        Source="gato1.png"
         HeightRequest="100"
         HorizontalOptions="Start"
-        VerticalOptions="Fill"/>
+        VerticalOptions="End"
+        Margin="0,0,0,50"/>
 
 
 
