@@ -49,9 +49,9 @@ void CorrigeTamanhoCenario(double w, double h)
 	foreach(var A in HS3.Children)
 	(A as Image).WidthRequest=w;
 
-	HS1.WidthRequest=w*1.5;
-	HS2.WidthRequest=w*1.5;
-	HS3.WidthRequest=w*1.5;
+	HS1.WidthRequest=w*2;
+	HS2.WidthRequest=w*2;
+	HS3.WidthRequest=w*2;
 }
 
 	  protected override void OnAppearing()
