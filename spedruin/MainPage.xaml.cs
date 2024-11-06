@@ -67,6 +67,7 @@ void CorrigeTamanhoCenario(double w, double h)
 		GerenciaCenas();
 		await Task.Delay(TempoEntreFrames);	
 	}
+	
   }
 
  void GerenciaCenas()

@@ -28,4 +28,43 @@ public void anda()
  {
     AnimacaoAtiva=a;
  }
+ public void Desenhar()
+ {
+    if(Parado)
+    return;
+     String nomeArgivo="";
+     int TamanhoAnimacao=0;
+     if(AnimacaoAtiva==1)
+     {
+       nomeArgivo= Animacao1 [FrameAtual];
+       TamanhoAnimacao = Animacao1.Count;
+     }
+    else if (AnimacaoAtiva==2)
+     {
+       nomeArgivo= Animacao2 [FrameAtual];
+       TamanhoAnimacao = Animacao2.Count;
+    
+     }
+    else if (AnimacaoAtiva==3)
+     {
+       nomeArgivo= Animacao3 [FrameAtual];
+       TamanhoAnimacao = Animacao3.Count;
+  }
+   if (FrameAtual>=TamanhoAnimacao)
+    {
+
+      if(loop)
+         FrameAtual=0;
+      else
+      {
+        Parado=true;
+        QuandoParar();
+      }
+    }
+ }
+public virtual void QuandoParar()
+{
+
+}
+
 }
