@@ -13,10 +13,13 @@ int velo3=3;
 int velo=0;
 int LarguraDaJanela=0;
 int AlturaDaJanela=0;
+Player jogador;
 
    public MainPage()
 	{
 		InitializeComponent();
+		jogador = new Player(gotolol);
+		jogador.Corre();
 	}
 
  
@@ -65,7 +68,9 @@ void CorrigeTamanhoCenario(double w, double h)
 	while(!Estamorto)
 	{
 		GerenciaCenas();
+		jogador.Desenhar();
 		await Task.Delay(TempoEntreFrames);	
+		
 	}
 	
   }

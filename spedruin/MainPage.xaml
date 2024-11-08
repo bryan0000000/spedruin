@@ -70,8 +70,8 @@ VerticalOptions="End">
 
 </HorizontalStackLayout>
 
-    <Image
-        Source="gato1.png"
+    <Image x:Name="gotolol"
+        Source="gato01.png"
         HeightRequest="100"
         HorizontalOptions="Start"
         VerticalOptions="End"
