@@ -4,20 +4,13 @@ public delegate void Callback();
 
 public class Player:Animacao
 {
- void Play ()
- {
-  Corre();
- }
- 
-   
- 
   public Player (Image a):base (a)
   {
-  for (int i=1; i<=01;++i)
-       Animacao1.Add($"gato{i.ToString("D2")}.png");
+  for (int i=1; i<=12;++i)
+       Animacao1.Add($"gato.{i.ToString("D2")}.png");
 
-
-
+         for (int i=1; i<=1;++i)
+       Animacao2.Add($"gato.{i.ToString("D2")}.png");
 
        SetAnimacaoAtiva(1);
   }
@@ -30,7 +23,7 @@ public class Player:Animacao
   {
    loop=true;
    SetAnimacaoAtiva(1);
-   
+   anda();
   }
 }
 

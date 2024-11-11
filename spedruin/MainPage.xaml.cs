@@ -36,7 +36,7 @@ Player jogador;
 
 void CalculaVelo(double w)
 {
-	velo1 = (int)(w*0.001);
+	velo1 = (int)(w*0.002);
 	velo2 = (int)(w*0.004);
 	velo3 = (int)(w*0.008);
 	velo  = (int)(w*0.01);
@@ -90,7 +90,7 @@ void CorrigeTamanhoCenario(double w, double h)
  }
  void GerenciaCena(HorizontalStackLayout hsl)
  {
-	var view =(hsl.Children.First()as Image);
+	var view =(hsl.Children.First() as Image);
 	if(view.WidthRequest + hsl.TranslationX < 0)
 	{
 		hsl.Children.Remove(view);

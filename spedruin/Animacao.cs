@@ -8,7 +8,7 @@ public partial class Animacao : ContentPage
  protected bool loop=true;
  protected int AnimacaoAtiva =1;
 
-bool Parado=true;
+bool Parado=false;
 int FrameAtual=1;
 protected Image compImage;
 public Animacao (Image a)
@@ -18,7 +18,7 @@ public Animacao (Image a)
 
 public void Para()
 {
- Parado=true;
+ Parado=false;
 }
 public void anda()
 {
@@ -33,7 +33,7 @@ public void anda()
     if(Parado)
     return;
      String nomeArgivo="";
-     int TamanhoAnimacao=0;
+     int TamanhoAnimacao=1;
      if(AnimacaoAtiva==1)
      {
        nomeArgivo= Animacao1 [FrameAtual];
