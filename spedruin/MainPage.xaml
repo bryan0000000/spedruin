@@ -72,7 +72,7 @@ VerticalOptions="End">
 
     <Image x:Name="gotolol"
         Source="gato01.png"
-        HeightRequest="-100"
+        HeightRequest="100"
         HorizontalOptions="Start"
         VerticalOptions="End"
         Margin="0,0,0,50"/>

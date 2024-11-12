@@ -1,30 +1,32 @@
-using spedruin;
-
-public delegate void Callback();
-
-public class Player:Animacao
+namespace spedruin
 {
-  public Player (Image a):base (a)
-  {
-  for (int i=1; i<=12;++i)
-       Animacao1.Add($"gato.{i.ToString("D2")}.png");
+    public delegate void CallBack();
+    public class Player:Animacao
+    {
+        public Player(Image a): base(a)
+        {
+            for(int numero = 1; numero <= 12; numero++)
+                Animacao1.Add($"gato{numero.ToString("D2")}.png");
 
-         for (int i=1; i<=1;++i)
-       Animacao2.Add($"gato.{i.ToString("D2")}.png");
+            for(int numero2 = 1; numero2 <= 2; numero2++)
+                Animacao2.Add($"morto{numero2.ToString("D2")}.png");
+            SetAnimacaoAtiva(1);
+        }
 
-       SetAnimacaoAtiva(1);
-  }
-  public void Morre ()
-  {
-    loop=false;
-    SetAnimacaoAtiva(2);
-  }
-  public void Corre()
-  {
-   loop=true;
-   SetAnimacaoAtiva(1);
-   anda();
-  }
+        public void Morto()
+        {
+            loop = false;
+            SetAnimacaoAtiva(2);
+        }
+
+        public void Run()
+        {
+            loop = true;
+            SetAnimacaoAtiva(1);
+          Corre();
+        }
+
+    }
 }
 
 
