@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="spedruin.MainPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
              Shell.NavBarIsVisible="false">
 
    <Grid>
@@ -76,7 +77,9 @@ VerticalOptions="End">
         HorizontalOptions="Start"
         VerticalOptions="End"
         Margin="0,0,0,50"/>
-
+        <ff:CachedImageView X:Name="gatolol"
+                                CacheTye="Disk"
+                                CacheDurations="363"/>
 
 
    </Grid>

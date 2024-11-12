@@ -1,9 +1,11 @@
+using FFImageLoading.Maui;
+
 namespace spedruin
 {
     public delegate void CallBack();
     public class Player:Animacao
     {
-        public Player(Image a): base(a)
+        public Player(CachedImageView a): base(a)
         {
             for(int numero = 1; numero <= 12; numero++)
                 Animacao1.Add($"gato{numero.ToString("D2")}.png");
