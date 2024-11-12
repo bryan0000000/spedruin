@@ -28,7 +28,7 @@ public void anda()
  {
     AnimacaoAtiva=a;
  }
- public void Desenhar()
+ public void Desenha()
  {
     if(Parado)
     return;

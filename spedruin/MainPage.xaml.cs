@@ -68,7 +68,7 @@ void CorrigeTamanhoCenario(double w, double h)
 	while(!Estamorto)
 	{
 		GerenciaCenas();
-		jogador.Desenhar();
+		jogador.Desenha();
 		await Task.Delay(TempoEntreFrames);	
 		
 	}
