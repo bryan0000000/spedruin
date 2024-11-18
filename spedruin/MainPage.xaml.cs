@@ -1,5 +1,5 @@
 ﻿
-
+using FFImageLoading.Maui;
 namespace spedruin;
 
 public partial class MainPage : ContentPage
@@ -18,7 +18,7 @@ Player jogador;
    public MainPage()
 	{
 		InitializeComponent();
-		jogador = new Player(gotolol);
+		jogador = new Player(gatolol);
 		jogador.Corre();
 	}
 
