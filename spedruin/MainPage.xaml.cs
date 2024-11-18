@@ -4,10 +4,19 @@ namespace spedruin;
 
 public partial class MainPage : ContentPage
 {
+
+bool EstanoChao=true;
+bool EstaNoAr=false;
+bool tempoPulando=0;
 bool Estamorto=false;
 bool EStarpulando=false;
-const int TempoEntreFrames=25;
+const int Forcapulo=8;
+const int maxTempoPulando=6;
+const int maxTemponoAr=4;
+const int TempoEntreFrames=30;
+const int ForcaGravidade=6;
 int velo1=1;
+int temponoAr=0;
 int velo2=2;
 int velo3=3;
 int velo=0;
@@ -66,13 +75,15 @@ void CorrigeTamanhoCenario(double w, double h)
 	async Task Desenhar()
   {
 	while(!Estamorto)
+	if (!EStarpulando&&!EstaNoAr)
 	{
+		AplicaGavidade();
 		GerenciaCenas();
 		jogador.Desenha();
+	}	
+	else
+	 AplicaPulo();
 		await Task.Delay(TempoEntreFrames);	
-		
-	}
-	
   }
 
  void GerenciaCenas()
@@ -97,6 +108,43 @@ void CorrigeTamanhoCenario(double w, double h)
 		hsl.Children.Add(view);
 		hsl.TranslationX=view.TranslationX;
 	}
+ }
+
+
+ void AplicaGavidade()
+ {
+	if(Player.GetY()<0)
+	   jogador.movey(ForcaGravidade);
+	else if (jogador.GetY()>=0)
+	{
+		jogador.SetY(0);
+		EstanoChao=true;
+	}
+ }
+
+ void AplicaPulo()
+ {
+ EstanoChao=false;
+ if(EStarpulando&&tempoPulando>=maxTempoPulando)
+ {
+	EStarpulando=false;
+	EstaNoAr=true;
+	temponoAr=0;
+ }
+ else if( EstaNoAr&&temponoAr>=maxTemponoAr)
+ {
+	EStarpulando=false;
+	EstaNoAr=false;
+	tempoPulando=0;
+	temponoAr=0;
+ }
+ else if(EStarpulando&&tempoPulando<maxTempoPulando)
+ {
+	jogador.Movey (-Forcapulo);
+	tempoPulando++;
+ }
+ else if (EstaNoAr)
+          temponoAr++;
  }
 
 }

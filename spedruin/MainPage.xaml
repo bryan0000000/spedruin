@@ -71,15 +71,15 @@ VerticalOptions="End">
 
 </HorizontalStackLayout>
 
-    <Image x:Name="gotolol"
-        Source="gato01.png"
-        HeightRequest="100"
-        HorizontalOptions="Start"
-        VerticalOptions="End"
-        Margin="0,0,0,50"/>
+  
         <ffimageloading:CachedImageView x:Name="gatolol"
                                  CacheType ="All"
-                                CacheDuration="363"/>
+                                CacheDuration="363"
+                                Source="gato01.png"
+                                HeightRequest="100"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                Margin="0,0,0,50"/>
 
 
    </Grid>

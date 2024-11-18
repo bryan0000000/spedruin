@@ -27,9 +27,26 @@ namespace spedruin
             SetAnimacaoAtiva(1);
           Corre();
         }
+   }
 
-    }
+public void MoveY (int s)
+{
+    ImageView.translationY+=s;
 }
+public double GetY()
+{
+    return ImageView.translationY;
+}
+public void SetY(double a)
+{
+  ImageView.translationY = a;
+}
+
+
+
+
+}
+
 
 
 
