@@ -6,6 +6,9 @@
              Shell.NavBarIsVisible="false">
 
    <Grid>
+            <Grid.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="OnGridTapped"/>
+            </Grid.GestureRecognizers>
 
     
 <HorizontalStackLayout x:Name="HS1"
@@ -79,7 +82,7 @@ VerticalOptions="End">
                                 HeightRequest="100"
                                 HorizontalOptions="Start"
                                 VerticalOptions="End"
-                                Margin="0,0,0,50"/>
+                                Margin="0,0,0,60"/>
 
 
    </Grid>

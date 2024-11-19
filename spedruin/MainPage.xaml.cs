@@ -5,16 +5,17 @@ namespace spedruin;
 public partial class MainPage : ContentPage
 {
 
-bool EstanoChao=true;
+bool EstaNoChao=true;
 bool EstaNoAr=false;
-bool tempoPulando=0;
+
 bool Estamorto=false;
-bool EStarpulando=false;
+bool EstaPulando=false;
 const int Forcapulo=8;
 const int maxTempoPulando=6;
 const int maxTemponoAr=4;
 const int TempoEntreFrames=30;
 const int ForcaGravidade=6;
+int tempoPulando=0;
 int velo1=1;
 int temponoAr=0;
 int velo2=2;
@@ -73,18 +74,20 @@ void CorrigeTamanhoCenario(double w, double h)
     }
 
 	async Task Desenhar()
-  {
-	while(!Estamorto)
-	if (!EStarpulando&&!EstaNoAr)
-	{
-		AplicaGavidade();
-		GerenciaCenas();
-		jogador.Desenha();
-	}	
-	else
-	 AplicaPulo();
-		await Task.Delay(TempoEntreFrames);	
-  }
+  {     
+		while (!Estamorto)
+		{
+			GerenciaCenas();
+			if (!EstaPulando && !EstaNoAr)
+			{
+				AplicaGavidade();
+				jogador.Desenha();
+			}
+			else
+				AplicaPulo();
+			await Task.Delay(TempoEntreFrames);
+		}
+	}
 
  void GerenciaCenas()
  {
@@ -113,39 +116,44 @@ void CorrigeTamanhoCenario(double w, double h)
 
  void AplicaGavidade()
  {
-	if(Player.GetY()<0)
-	   jogador.movey(ForcaGravidade);
+	if(jogador.GetY ()<0)
+	   jogador.MoveY(ForcaGravidade);
 	else if (jogador.GetY()>=0)
 	{
 		jogador.SetY(0);
-		EstanoChao=true;
+		EstaNoChao=true;
 	}
  }
 
  void AplicaPulo()
  {
- EstanoChao=false;
- if(EStarpulando&&tempoPulando>=maxTempoPulando)
+ EstaNoChao=false;
+ if(EstaPulando && tempoPulando >= maxTempoPulando)
  {
-	EStarpulando=false;
+	EstaPulando=false;
 	EstaNoAr=true;
 	temponoAr=0;
  }
- else if( EstaNoAr&&temponoAr>=maxTemponoAr)
+ else if( EstaNoAr && temponoAr >= maxTemponoAr)
  {
-	EStarpulando=false;
+	EstaPulando=false;
 	EstaNoAr=false;
 	tempoPulando=0;
 	temponoAr=0;
  }
- else if(EStarpulando&&tempoPulando<maxTempoPulando)
+ else if(EstaPulando && tempoPulando < maxTempoPulando)
  {
-	jogador.Movey (-Forcapulo);
+	jogador.MoveY (-Forcapulo);
 	tempoPulando++;
  }
  else if (EstaNoAr)
           temponoAr++;
  }
+ 	void OnGridTapped(object o, TappedEventArgs a)
+	{
+		if (EstaNoChao)
+			EstaPulando = true;
+	}
 
 }
 
