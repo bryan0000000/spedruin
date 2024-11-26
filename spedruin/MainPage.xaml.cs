@@ -10,8 +10,8 @@ bool EstaNoAr=false;
 
 bool Estamorto=false;
 bool EstaPulando=false;
-const int Forcapulo=8;
-const int maxTempoPulando=6;
+const int Forcapulo=15;
+const int maxTempoPulando=8;
 const int maxTemponoAr=4;
 const int TempoEntreFrames=30;
 const int ForcaGravidade=6;
@@ -23,6 +23,7 @@ int velo3=3;
 int velo=0;
 int LarguraDaJanela=0;
 int AlturaDaJanela=0;
+Inimigos inimigos;
 Player jogador;
 
    public MainPage()
@@ -41,6 +42,12 @@ Player jogador;
      base.OnSizeAllocated(w, h);
      CorrigeTamanhoCenario(w,h);
      CalculaVelo(w);
+	 inimigos=new Inimigos(-w);
+	 inimigos.Add(new Inimigo(imgInimigo1));
+	 inimigos.Add(new Inimigo(imgInimigo2));
+     inimigos.Add(new Inimigo(imgInimigo3));
+     inimigos.Add(new Inimigo(imgInimigo4));
+
    }
 
 
@@ -78,6 +85,9 @@ void CorrigeTamanhoCenario(double w, double h)
 		while (!Estamorto)
 		{
 			GerenciaCenas();
+			if (inimigos != null)
+			inimigos.Desenha(velo);
+
 			if (!EstaPulando && !EstaNoAr)
 			{
 				AplicaGavidade();
